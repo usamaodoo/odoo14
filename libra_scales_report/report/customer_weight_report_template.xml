@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="customer_weight_report_template">
+        <t t-call="web.html_container">
+            <t t-call="libra_scales_report.internal_layout_libra_scales_report">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <div class="text-center">
+                            <h4><b><u>CUSTOMER WEIGHT REPORT</u></b></h4>
+                        </div>
+                        <div class="text-center">
+                            <h5><b>From: </b><span t-field="o.start_date"/>
+                                &#160;  &#160; &#160; <b>To:</b> <span t-field="o.end_date"/>
+                            </h5>
+                        </div>
+                        <div>
+                            <h4><b><u>Party Code</u></b>&#160;  &#160; &#160; &#160;  &#160; &#160;
+                                hdjdhdhdhdhdhh
+                            </h4>
+                            <h4><b><u>Party Name</u></b>&#160; &#160; &#160;  &#160; &#160;
+                                hdjdhdhdhdhdhh
+                            </h4>
+                            <br/>
+                            <h4><b>Date :</b> &#160;  &#160; &#160; &#160;  &#160; &#160; &#160;  &#160; &#160; &#160;  &#160; &#160;
+                                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y %H:%M')"/>
+                            </h4>
+                        </div>
+
+                        <style>
+                            .heading_style{
+                            border: 1px solid black;
+                            padding-left:2px;
+                            text-align:center;
+                            font-size:17px;
+                            font-weight: bold;
+                            }
+                            .total_style{
+                            padding-left:2px;
+                            text-align:center;
+                            font-size:20px;
+                            font-weight: bold;
+                            border-bottom: 2px solid black ;
+                            border-top: 2px solid black ;
+                            }
+                            .body_style{
+                            border: 1px solid black;
+                            padding-left:2px;
+                            text-align:center;
+                            font-size:10px;
+                            font-weight:700px;
+                            }
+                            .border{border: 1px solid black; text-align:center; font-size:11px;}
+                            .border th {font-size:11; border: 1px solid black;}
+                            .total_amount_values{font-size:10px;}
+                        </style>
+                        <table style="margin-top: 10px; " width="100%" class="border" >
+                            <thead class="border">
+                                <tr>
+                                    <th class="heading_style" width="2%">Sr No.</th>
+                                    <th class="heading_style" width="2%">Vehicle No.</th>
+                                    <th class="heading_style" width="4%">Container No</th>
+                                    <th class="heading_style" width="5%">Product Name</th>
+                                    <th class="heading_style" width="4%">1st Weight</th>
+                                    <th class="heading_style" width="4%">2nd Weight</th>
+                                    <th class="heading_style" width="4%">Net Weight</th>
+                                    <th class="heading_style" width="2%">Quantity</th>
+                                    <th class="heading_style" width="4%">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+<!--                                <t t-set="count_id" t-value="0"/>-->
+<!--                                <t t-set="less_trade_offer" t-value="0"/>-->
+<!--                                <t t-set="amount_total" t-value="0"/>-->
+<!--                                <t t-set="grand_total_sto" t-value="0"/>-->
+<!--                                <t t-foreach="o.sale_person_id" t-as="line">-->
+<!--                                        <t t-foreach="env['sale.order'].search-->
+<!--                                    ([('user_id', '=', line.id),('state', '=', 'draft'), ('date_order', '&gt;=' , o.start_date), ('date_order', '&lt;=' , o.end_date)])" t-as="so">-->
+<!--                                            <tr class="body_style">-->
+<!--                                                <t t-set="count_id" t-value="count_id+1"/>-->
+<!--                                                <td style="border: 1px solid black;">-->
+<!--                                                    <t t-esc="count_id"/>-->
+<!--                                                </td>-->
+<!--                                                <td style="border: 1px solid black;">-->
+<!--                                                    <span t-field="so.partner_id"/>-->
+<!--                                                </td>-->
+<!--                                                <td style="border: 1px solid black;">-->
+<!--                                                    <span t-field="so.amount_total"/>-->
+<!--                                                    <t t-set="amount_total" t-value="(amount_total+so.amount_total)"-->
+<!--                                                       t-options='{"widget": "float", "precision": 2}'/>-->
+<!--                                                </td>-->
+<!--                                                <t/>-->
+<!--                                                <td style="border: 1px solid black;">-->
+<!--                                                    <span t-field="so.less_trade_offer"/>-->
+<!--                                                    <t t-set="less_trade_offer" t-value="(less_trade_offer+so.less_trade_offer)"-->
+<!--                                                       t-options='{"widget": "float", "precision": 2}'/>-->
+<!--                                                </td>-->
+<!--                                                <td style="border: 1px solid black;">-->
+<!--                                                    <span t-field="so.grand_total_sto"/>-->
+<!--                                                    <t t-set="grand_total_sto" t-value="(grand_total_sto+so.grand_total_sto)"-->
+<!--                                                       t-options='{"widget": "float", "precision": 2}'/>-->
+<!--                                                </td>-->
+<!--                                                <td style="border: 1px solid black;">-->
+<!--                                                    <span t-field="line.name"/>-->
+<!--                                                </td>-->
+<!--                                                <td style="border: 1px solid black;">-->
+<!--                                                    <span t-field="so.pricelist_id"/>-->
+<!--                                                </td>-->
+<!--                                            </tr>-->
+<!--                                        </t>-->
+<!--                                    </t>-->
+                                    <!-- Grand Total Section-->
+                                    <tr>
+                                        <td class="total_style" style="border-left: 2px solid black ;">
+                                        </td>
+                                        <td class="total_style">
+                                        </td>
+                                        <td class="total_style">
+                                        </td>
+                                        <td class="total_style text-right pl-1">
+                                            <span style="total_style">Grand Total : </span>
+                                        </td>
+                                        <td class="total_style" >
+                                            <span t-esc="00"
+                                                  t-options='{"widget": "float", "precision": 2}'/>
+                                        </td>
+                                        <td class="total_style" >
+                                            <span t-esc="00"
+                                                  t-options='{"widget": "float", "precision": 2}'/>
+                                        </td>
+                                        <td class="total_style" >
+                                            <span t-esc="00"
+                                                  t-options='{"widget": "float", "precision": 2}'/>
+                                        </td>
+                                        <td class="total_style" >
+                                            <span t-esc="00"
+                                                  t-options='{"widget": "float", "precision": 2}'/>
+                                        </td>
+                                        <td class="total_style" style="border-right: 2px solid black ;">
+                                            <span t-esc="00"
+                                                  t-options='{"widget": "float", "precision": 2}'/>
+                                        </td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
+
+
+

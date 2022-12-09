@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="internal_layout_libra_scales_report">
+        <!--custom header-->
+        <div class="header">
+            <style>
+                .heading_table td{
+                font-size: 10px;
+                }
+            </style>
+            <div class="row">
+                <div class="col-3">
+                </div>
+                <div class="col-2" style="height:100px;">
+                    <span t-field="env.company.logo"
+                          t-options='{"widget": "image","style":"width: 120px;height: 65px"}'/>
+                </div>
+                <div class="col-4" style="vertical-align:middle;">
+                    <h4 style="vertical-align:middle;padding-top:1%; padding-bottom:1%;">
+                        <b><span t-field="env.company.name"/></b><br/>
+                        <h6><span t-field="env.company.street"/></h6>
+                    </h4>
+                </div>
+                <div class="col-3">
+                </div>
+            </div>
+        </div>
+        <div class="article" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+            <t t-raw="0"/>
+        </div>
+
+        <!--Custom Footer-->
+        <div class="footer text-center" style="1px solid black;font-size:15px;font-weight: bold;">
+            <div class="row">
+                <div class="col-4">
+                    <strong><b>	03016897581</b></strong>
+                </div>
+                <div class="col-4">
+                    <strong><b>info@yourcompany.com</b></strong>
+                </div>
+                <div class="col-4">
+                    <strong><b>	http://www.example.com</b></strong>
+                </div>
+            </div>
+            <div t-if="report_type == 'pdf'" class="text-muted">
+                Page: <span class="page"/> / <span class="topage"/>
+            </div>
+        </div>
+    </template>
+</odoo>
+
+
+

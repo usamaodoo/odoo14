@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="scales_report_wizard_view" model="ir.ui.view">
+            <field name="name">Libra Scales Report</field>
+            <field name="model">scales.report</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="report_name" widget="radio"/>
+                            </group>
+                        </group>
+                    <group>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            </group>
+                        <group>
+                            <field name="customer_name" widget="many2many_tags"
+                                   attrs="{'invisible':[('report_name','!=','customers_weight_report'),('report_name','!=','products_report')]}"/>
+
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="PRINT PDF" name="generate_scales_report" type="object"
+                                default_focus="1" class="btn-primary" />
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="scales_report_action" model="ir.actions.act_window">
+            <field name="name">Libra Scales Reports</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">scales.report</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="scales_report_wizard_view" />
+            <field name="target">new</field>
+        </record>
+
+
+        <menuitem id="scales_report_menu"
+                  name="Libra Scales Report"
+                  parent="purchase.menu_purchase_root"
+                  action="scales_report_action"
+                  sequence="100"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- header and footer design-->
+    <record id="paperformat_libra_scales_format" model="report.paperformat">
+        <field name="name">Libra Scales Report</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">190</field>
+        <field name="page_width">450</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">40</field>
+        <field name="margin_bottom">15</field>
+        <field name="margin_left">2</field>
+        <field name="margin_right">2</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">30</field>
+        <field name="dpi">90</field>
+    </record>
+
+
+    <!--action for weigment report Template-->
+    <record id="weighment_report_action" model="ir.actions.report">
+        <field name="name">Weighment Report</field>
+        <field name="model">scales.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">libra_scales_report.weighment_report_template</field>
+        <field name="report_file">libra_scales_report.weighment_report_template</field>
+        <field name="paperformat_id" ref="paperformat_libra_scales_format"/>
+        <field name="binding_model_id" ref="libra_scales_report.model_scales_report"/>
+        <field name="print_report_name">('Weighment Report - %s' % (object.date_f))</field>
+    </record>
+
+    <!--action for serial wise weight report Template-->
+    <record id="serial_wise_weight_report_action" model="ir.actions.report">
+        <field name="name">Serial Wise Weight Report</field>
+        <field name="model">scales.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">libra_scales_report.serial_wise_weight_report_template</field>
+        <field name="report_file">libra_scales_report.serial_wise_weight_report_template</field>
+        <field name="paperformat_id" ref="paperformat_libra_scales_format"/>
+        <field name="binding_model_id" ref="libra_scales_report.model_scales_report"/>
+        <field name="print_report_name">('Serial Wise Weight Report - %s' % (object.date_f))</field>
+    </record>
+
+    <!--action for vehicle wise report Template-->
+    <record id="vehicle_wise_report_action" model="ir.actions.report">
+        <field name="name">Vehicle Wise Report</field>
+        <field name="model">scales.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">libra_scales_report.vehicle_wise_report_template</field>
+        <field name="report_file">libra_scales_report.vehicle_wise_report_template</field>
+        <field name="paperformat_id" ref="paperformat_libra_scales_format"/>
+        <field name="binding_model_id" ref="libra_scales_report.model_scales_report"/>
+        <field name="print_report_name">('Vehicle Wise Report - %s' % (object.date_f))</field>
+    </record>
+
+    <!--action for customer weight report Template-->
+    <record id="customer_weight_report_action" model="ir.actions.report">
+        <field name="name">Customer Weight Report</field>
+        <field name="model">scales.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">libra_scales_report.customer_weight_report_template</field>
+        <field name="report_file">libra_scales_report.customer_weight_report_template</field>
+        <field name="paperformat_id" ref="paperformat_libra_scales_format"/>
+        <field name="binding_model_id" ref="libra_scales_report.model_scales_report"/>
+        <field name="print_report_name">('Customer Weight Report - %s' % (object.date_f))</field>
+    </record>
+
+    <!--action for All Products report Template-->
+    <record id="products_report_action" model="ir.actions.report">
+        <field name="name">Products Report</field>
+        <field name="model">scales.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">libra_scales_report.products_report_template</field>
+        <field name="report_file">libra_scales_report.products_report_template</field>
+        <field name="paperformat_id" ref="paperformat_libra_scales_format"/>
+        <field name="binding_model_id" ref="libra_scales_report.model_scales_report"/>
+        <field name="print_report_name">('Products Report - %s' % (object.date_f))</field>
+    </record>
+
+
+    <!-- header and footer  design FOr single products and party name-->
+    <record id="paperformat_libra_scales_party_product_format" model="report.paperformat">
+        <field name="name">Libra Scales Report</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">190</field>
+        <field name="page_width">450</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">40</field>
+        <field name="margin_bottom">15</field>
+        <field name="margin_left">2</field>
+        <field name="margin_right">2</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">30</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <!--action for Party name report Template-->
+    <record id="party_name_report_action" model="ir.actions.report">
+        <field name="name">Party Name Report</field>
+        <field name="model">scales.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">libra_scales_report.party_name_report_template</field>
+        <field name="report_file">libra_scales_report.party_name_report_template</field>
+        <field name="paperformat_id" ref="paperformat_libra_scales_party_product_format"/>
+        <field name="binding_model_id" ref="libra_scales_report.model_scales_report"/>
+        <field name="print_report_name">('Party Name Report - %s' % (object.date_f))</field>
+    </record>
+
+    <!--action for product name and code report Template-->
+    <record id="product_name_report_action" model="ir.actions.report">
+        <field name="name">Product Name Report</field>
+        <field name="model">scales.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">libra_scales_report.product_name_report_template</field>
+        <field name="report_file">libra_scales_report.product_name_report_template</field>
+        <field name="paperformat_id" ref="paperformat_libra_scales_party_product_format"/>
+        <field name="binding_model_id" ref="libra_scales_report.model_scales_report"/>
+        <field name="print_report_name">('Product Name Report - %s' % (object.date_f))</field>
+    </record>
+
+
+</odoo>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--        <record id="paperformat_saleman_format" model="report.paperformat">-->
+<!--        <field name="name">daily sale report</field>-->
+<!--        <field name="default" eval="True"/>-->
+<!--        <field name="format">A4</field>-->
+<!--        <field name="orientation">Portrait</field>-->
+<!--        <field name="margin_top">2</field>-->
+<!--        <field name="margin_bottom">15</field>-->
+<!--        <field name="margin_left">2</field>-->
+<!--        <field name="margin_right">2</field>-->
+<!--        <field name="header_line" eval="False"/>-->
+<!--        <field name="header_spacing">5</field>-->
+<!--        <field name="dpi">90</field>-->
+<!--    </record>-->

@@ -1,0 +1,1 @@
+from . import scales_report_wizard

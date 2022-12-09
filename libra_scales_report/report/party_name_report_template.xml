@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="party_name_report_template">
+        <t t-call="web.html_container">
+            <t t-call="libra_scales_report.internal_layout_libra_scales_report">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page"  text="center">
+                        <div class="text-center">
+                            <h3><b><u>PARTY NAME REPORT</u></b></h3>
+                            <h4><b>Date : </b>
+                                <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y %H:%M')"/>
+                            </h4>
+                        </div>
+                        <style>
+                            .heading_style{
+                            border: 2px solid black;
+                            padding-left:2px;
+                            text-align:center;
+                            font-size:25px;
+                            font-weight: bold;
+                            }
+                            .body_style{
+                            border: 1px solid black;
+                            padding-left:2px;
+                            text-align:center;
+                            font-size:10px;
+                            font-weight:700px;
+                            }
+
+                        </style>
+                        <table style="margin-top: 40px;margin-right: auto;margin-left: auto; " width="30%" class="border" >
+                            <thead class="border">
+                                <tr>
+                                    <th class="heading_style" width="1%">Party Code</th>
+                                    <th class="heading_style" width="3%">Party Name</th>
+                                </tr>
+                            </thead>
+<!--                            <tbody>-->
+<!--                                <t t-set="count_id" t-value="0"/>-->
+<!--                                <t t-foreach="o.sale_person_id" t-as="line">-->
+<!--                                    &lt;!&ndash;if sale order state in draft&ndash;&gt;-->
+<!--                                    <t t-foreach="env['sale.order'].search-->
+<!--                                    ([('user_id', '=', line.id),('state', '=', 'draft'), ('date_order', '&gt;=' , o.start_date), ('date_order', '&lt;=' , o.end_date)])" t-as="so">-->
+<!--                                        <tr class="body_style">-->
+<!--                                                <t t-set="count_id" t-value="count_id+1"/>-->
+<!--                                                <td style="border: 1px solid black;">-->
+<!--                                                    <t t-esc="count_id"/>-->
+<!--                                                </td>-->
+<!--                                                <td style="border: 1px solid black;">-->
+<!--                                                    <span t-field="so.partner_id"/>-->
+<!--                                                </td>-->
+<!--                                            </tr>-->
+
+<!--                                    </t>-->
+<!--                                </t>-->
+<!--                            </tbody>-->
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
+
+
+
